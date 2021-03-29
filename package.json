@@ -1,15 +1,8 @@
 {
-  "name": "nodedi",
-  "version": "0.1.0",
+  "name": "@robolv/nodedi",
+  "version": "0.0.1",
   "description": "Dependency injection / Plugins for nodejs",
   "main": "dist/app.js",
-  "scripts": {
-    "start": "./node_modules/.bin/tsc && node dist/app.js",
-    "build": "./node_modules/.bin/tsc",
-    "example": "./node_modules/.bin/tsc && node dist/example.js"
-  },
-  "author": "Rihards Stasans",
-  "license": "ISC",
   "dependencies": {
     "reflect-metadata": "^0.1.13"
   },
@@ -17,5 +10,34 @@
     "@types/node": "^14.14.37",
     "tslint": "^6.1.3",
     "typescript": "^4.2.3"
-  }
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/tsc && node dist/app.js",
+    "build": "./node_modules/.bin/tsc",
+    "example": "./node_modules/.bin/tsc && node dist/example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoboLV/NodeDI.git"
+  },
+  "keywords": [
+    "di",
+    "node",
+    "plugin",
+    "dependency",
+    "injection",
+    "arch",
+    "arcitecture",
+    "structure",
+    "data",
+    "framework",
+    "js",
+    "typescript"
+  ],
+  "author": "Rihards Stasans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoboLV/NodeDI/issues"
+  },
+  "homepage": "https://github.com/RoboLV/NodeDI#readme"
 }
