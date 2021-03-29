@@ -47,7 +47,7 @@ export class InjectorFactory
             return existingInstance;
         }
 
-        // If class is overwritten, ose final one
+        // If class is overwritten, use final one
         const target = targetClass?.prototype?.__OVERWRITE_CLASS__
             || targetClass?.constructor.prototype?.__OVERWRITE_CLASS__
             || targetClass;
@@ -66,33 +66,11 @@ export class InjectorFactory
         });
 
         const newInstance = new target(...injections);
-        this.initializeClassMembers(target, newInstance);
 
         if (!target.prototype.__IS_REINITIALIZEZIBLE__) {
             this.initializesObjectMap.set(target, newInstance);
         }
 
         return newInstance;
-    }
-
-    /**
-     * If Class contain initializible members
-     * TODO: Add Decorator for members to handle this
-     *s
-     * @param target
-     * @param instance
-     * @protected
-     */
-    protected initializeClassMembers(target: IType<any>, instance: any): void
-    {
-        if (target?.prototype?.__INITIALIZIBLE_MEMBERS__) {
-            (target.prototype.__INITIALIZIBLE_MEMBERS__ || []).forEach((member: IType<any>, key: string) => {
-               if (Array.isArray(member)) {
-                   instance[key] = member.map((childMember: IType<any>) => this.create<any>(childMember));
-               } else {
-                   instance[key] = this.create<any>(member);
-               }
-            });
-        }
     }
 }

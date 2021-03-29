@@ -3,7 +3,7 @@ This is module add DependencyInjection to your code.
 Also this functionality will add plugins for you.
 
 TODO:
-* Initializable class members (add decorator)
+* Add class Aliases. Allow use interface instead of class. Allow for different code blocks use different class aliases.
 * Plugins decorator
 * * rewrite on same name
 * * handle variable extend

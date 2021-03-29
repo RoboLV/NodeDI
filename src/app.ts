@@ -4,7 +4,6 @@ import {Overwrite} from "./Annotation/Overwrite";
 import {Reinitializezible} from "./Annotation/Reinitializezible";
 import {Plugin} from "./Annotation/Plugin";
 
-
 export {
     // Decorators
     Injectable,
