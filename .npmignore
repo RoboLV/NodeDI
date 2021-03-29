@@ -1,0 +1,4 @@
+/src/
+/.idea/
+/dist/example.js
+*.map

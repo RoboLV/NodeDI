@@ -58,15 +58,15 @@ class P2 {
 
     @Plugin(P1, 'test_one')
     a(source: any, callback: (i: number) => any, i: number) {
-        i++;
         return callback(i + this.dd);
     }
 }
 
 const injector = InjectorFactory.instance;
+// Class D would be used and B class will be initialized and passed to the constructor.
 const inst = injector.create<C>(C, 12);
 
+// P2 class will plug in into P1 class and take controll over method
 const p = injector.create<P1>(P1);
-const p2 = injector.create<P2>(P2);
-p.a(1); // 13 = (1 + 1 + 11)
+p.a(1); // 12 = (1 + 11) insted of 1
 ```
