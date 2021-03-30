@@ -49,7 +49,7 @@ class P2 {
     aa(source: any, value: any) {
         return value > 100 ? 1000 : 10;
     }
-x
+
     @Plugin(P1, 'method_test')
     a(source: any, callback: (i: number) => any, i: number) {
         i++;

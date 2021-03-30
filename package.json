@@ -1,6 +1,6 @@
 {
   "name": "@robolv/nodedi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dependency injection / Plugins for nodejs",
   "main": "dist/app.js",
   "dependencies": {
