@@ -2,6 +2,9 @@ Node DI
 This is module add DependencyInjection to your code.
 Also this functionality will add plugins for you.
 
+Install:
+``npm i @robolv/nodedi``
+
 TODO:
 * Add class Aliases. Allow use interface instead of class. Allow for different code blocks use different class aliases.
 * Plugins decorator
@@ -17,7 +20,7 @@ import {
     Overwrite,
     Reinitializezible,
     Plugin
-} from "./app";
+} from "@robolv/nodedi";
 
 @Injectable()
 class A {}
@@ -47,26 +50,33 @@ class D extends C {
 
 @Injectable()
 class P1 {
+    protected aa = 100;
+
     a(i: number) {
-        console.log(i);
+        console.log(i + this.aa);
     }
 }
 
 @Injectable()
 class P2 {
-    private dd = 11;
+    protected dd = 11;
 
-    @Plugin(P1, 'test_one')
+    @Plugin(P1, 'variable_test')
+    aa(source: any, value: any) {
+        return value > 100 ? 1000 : 10;
+    }
+
+    @Plugin(P1, 'method_test')
     a(source: any, callback: (i: number) => any, i: number) {
+        i++;
         return callback(i + this.dd);
     }
 }
 
 const injector = InjectorFactory.instance;
-// Class D would be used and B class will be initialized and passed to the constructor.
 const inst = injector.create<C>(C, 12);
 
-// P2 class will plug in into P1 class and take controll over method
 const p = injector.create<P1>(P1);
-p.a(1); // 12 = (1 + 11) insted of 1
+const p2 = injector.create<P2>(P2);
+p.a(1);
 ```
