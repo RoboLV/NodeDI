@@ -1,4 +1,13 @@
 /src/
 /.idea/
-/dist/example.js
+/scripts/
+example.js
+example.d.ts
 *.map
+*.test.*
+package-lock.json
+tsconfig.json
+jest.config.js
+.gitignore
+tslint.json
+publish.sh
